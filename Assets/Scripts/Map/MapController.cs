@@ -128,10 +128,10 @@ public class MapController : MonoBehaviour
         {
             return;
         }
+
         foreach (GameObject chunk in spawnedChunks)
         {
             opDist = Vector3.Distance(player.transform.position, chunk.transform.position);
-
             if (opDist > maxOpDist)
             {
                 chunk.SetActive(false);
@@ -141,6 +141,5 @@ public class MapController : MonoBehaviour
                 chunk.SetActive(true);
             }
         }
-        
     }
 }

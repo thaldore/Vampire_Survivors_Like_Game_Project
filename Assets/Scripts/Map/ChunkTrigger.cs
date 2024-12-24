@@ -24,7 +24,7 @@ public class ChunkTrigger : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            if(!mc.currentChunk != targetMap)
+            if(mc.currentChunk == targetMap)
             {
                 mc.currentChunk = null;
             }
