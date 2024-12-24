@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab59f99511d2854780c65c217a59f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 6923391471615988222, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
   offset: {x: 0, y: 0, z: -10}

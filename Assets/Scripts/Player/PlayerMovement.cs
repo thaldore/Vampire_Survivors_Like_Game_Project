@@ -13,12 +13,16 @@ public class PlayerMovement : MonoBehaviour
     public float lastVerticalVector;
     [HideInInspector]
     public Vector2 moveDir;
+    [HideInInspector]
+    public Vector2 lastMovedVector;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -39,14 +43,28 @@ public class PlayerMovement : MonoBehaviour
 
         moveDir = new Vector2(moveX, moveY).normalized;
 
-        if(moveDir.x != 0)
+        if (moveDir.x != 0)
         {
             lastHorizontalVector = moveDir.x;
+            lastMovedVector = new Vector2(lastHorizontalVector, 0f); // last moved x
+
         }
-        else
+
+        if (moveDir.y != 0)
         {
             lastHorizontalVector = moveDir.y;
         }
+
+        if (moveDir.y != 0)
+        {
+            lastHorizontalVector = moveDir.y;
+            lastMovedVector = new Vector2 (0f , lastVerticalVector); // last moved y  
+        }
+        else if (moveDir.x != 0 && moveDir.y != 0)
+        {
+            //lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector); // while moving
+        } 
+
     }
     void Move()
     {
