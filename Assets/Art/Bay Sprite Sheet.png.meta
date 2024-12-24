@@ -82,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -184,254 +184,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 32x32-bat-sprite_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 96
-        width: 27
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 99cee2d2dd7f39930800000000000000
-      internalID: 4148932211056241817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_1
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 100
-        width: 29
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d546b3dc2b63fe020800000000000000
-      internalID: 2373175670222840925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_2
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 106
-        width: 31
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a6e4bc45507762940800000000000000
-      internalID: 5271031278664896106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 105
-        width: 32
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 53623ca71f54b7db0800000000000000
-      internalID: -4793160474956716491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_4
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 63
-        width: 21
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3285bd340e51ac8e0800000000000000
-      internalID: -1672500258659411933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_5
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 73
-        width: 19
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c44af7d422ce89e80800000000000000
-      internalID: -8171521891790511028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_6
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 74
-        width: 19
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 10e8dfe7729c645e0800000000000000
-      internalID: -1925630619182854655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_7
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 68
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9b828a6f1b2e7620800000000000000
-      internalID: 2773701834437725087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_8
+      name: Bay Sprite Sheet_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 32
+        y: 97
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ec188ba82ec284eacdd64958717660
+      internalID: -275103942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 101
         width: 27
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 97f8b7e34ee260340800000000000000
-      internalID: 4829599208237141881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_9
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 36
-        width: 29
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 59c9ee85c220c2880800000000000000
-      internalID: -8634523996082234219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_10
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 44
-        width: 31
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b023b3d849fc06590800000000000000
-      internalID: -7682912727362489845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 42
-        width: 32
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -439,98 +219,318 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 92f7be2c87aa22410800000000000000
-      internalID: 1450909465609731881
+      spriteID: 30fed3ec0e538d44b9a7fe5a3b470696
+      internalID: 1075475507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32x32-bat-sprite_12
+      name: Bay Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 21
-        height: 16
+        x: 66
+        y: 107
+        width: 29
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 59fe8e22505e6f090800000000000000
-      internalID: -8000955877753819243
+      spriteID: 1c6f2256304819d4bb6fb723665e5eaa
+      internalID: -1101420785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32x32-bat-sprite_13
+      name: Bay Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 37
-        y: 9
+        x: 97
+        y: 106
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e8dd04ce8963542b4fe9cfd8403317
+      internalID: 332086443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 64
         width: 19
-        height: 23
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b7eb03d5cd1a70750800000000000000
-      internalID: 6271158973965057659
+      spriteID: 79bb3108e65f7914390254fcbe2f6037
+      internalID: 164962177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 32x32-bat-sprite_14
+      name: Bay Sprite Sheet_5
       rect:
         serializedVersion: 2
-        x: 69
-        y: 10
-        width: 19
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d36d4ea17c2deaeb0800000000000000
-      internalID: -4706592807964060099
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 32x32-bat-sprite_15
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 4
+        x: 41
+        y: 74
         width: 17
-        height: 23
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 25ba6f8f43da3a850800000000000000
-      internalID: 6387139139568315218
+      spriteID: fb53e8d3119708049892ed5f3f393833
+      internalID: -140297244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 75
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0deb0418a26c244a9de165a6401513f
+      internalID: -1880215253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 69
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7342f4db164d3cf46b08b0f0d81cac87
+      internalID: -1449986551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 33
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08624d9a96759f4aae7e6b3ef816c9b
+      internalID: -773879456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 37
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec4d57e09226104d8a87dd890ebe8f4
+      internalID: -87016397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 45
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1487ae668590c54ab57a476ececa076
+      internalID: 2134983606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 43
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a7ecf0934eaf84faa814a8095accfc
+      internalID: -890898218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b9dde38fdc0634eb66cfd955f63899
+      internalID: 656874810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 10
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34744213400a3a543b5f6b0cd225f2cb
+      internalID: 1839982601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 11
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55eecc3bfdd78c443980557976163c2e
+      internalID: -850950394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 5
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508e0b4b283b2a040857b098a9b1ce42
+      internalID: -599149023
       vertices: []
       indices: 
       edges: []
@@ -539,7 +539,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bb0960aab2bd9b8459bda8e17eb8f21d
     internalID: 0
     vertices: []
     indices: 
@@ -549,22 +549,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      32x32-bat-sprite_0: 4148932211056241817
-      32x32-bat-sprite_1: 2373175670222840925
-      32x32-bat-sprite_10: -7682912727362489845
-      32x32-bat-sprite_11: 1450909465609731881
-      32x32-bat-sprite_12: -8000955877753819243
-      32x32-bat-sprite_13: 6271158973965057659
-      32x32-bat-sprite_14: -4706592807964060099
-      32x32-bat-sprite_15: 6387139139568315218
-      32x32-bat-sprite_2: 5271031278664896106
-      32x32-bat-sprite_3: -4793160474956716491
-      32x32-bat-sprite_4: -1672500258659411933
-      32x32-bat-sprite_5: -8171521891790511028
-      32x32-bat-sprite_6: -1925630619182854655
-      32x32-bat-sprite_7: 2773701834437725087
-      32x32-bat-sprite_8: 4829599208237141881
-      32x32-bat-sprite_9: -8634523996082234219
+      Bay Sprite Sheet_0: -275103942
+      Bay Sprite Sheet_1: 1075475507
+      Bay Sprite Sheet_10: 2134983606
+      Bay Sprite Sheet_11: -890898218
+      Bay Sprite Sheet_12: 656874810
+      Bay Sprite Sheet_13: 1839982601
+      Bay Sprite Sheet_14: -850950394
+      Bay Sprite Sheet_15: -599149023
+      Bay Sprite Sheet_2: -1101420785
+      Bay Sprite Sheet_3: 332086443
+      Bay Sprite Sheet_4: 164962177
+      Bay Sprite Sheet_5: -140297244
+      Bay Sprite Sheet_6: -1880215253
+      Bay Sprite Sheet_7: -1449986551
+      Bay Sprite Sheet_8: -773879456
+      Bay Sprite Sheet_9: -87016397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
