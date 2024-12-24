@@ -129,6 +129,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6923391471615988222, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
   m_PrefabInstance: {fileID: 3743385671257447267}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &524308727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524308716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93afbfb8c5f86f249946ed483a053014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 0}
 --- !u!1001 &837978427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,6 +259,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1349823750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1349823751}
+  - component: {fileID: 1349823752}
+  m_Layer: 0
+  m_Name: Knife Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1349823751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349823750}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 524308720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1349823752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349823750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61f2e458f19cfd498b22c3cf8d8db76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8612555100087259492, guid: 7045c1904b9453340ba256d1e994dbb7, type: 3}
+  damage: 0
+  speed: 15
+  cooldownDuration: 0.5
+  pierce: 0
 --- !u!1 &1470950518 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1036054868311105743, guid: a5e60b0139217f44f91d3f3093f65c5a, type: 3}
@@ -378,8 +440,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6923391471615988222, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1349823751}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7556182047948408738, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 524308727}
   m_SourcePrefab: {fileID: 100100000, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
