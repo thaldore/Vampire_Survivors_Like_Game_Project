@@ -186,7 +186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93afbfb8c5f86f249946ed483a053014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterData: {fileID: 0}
+  characterData: {fileID: 11400000, guid: 78bb85640fce424468d489d45c810c76, type: 2}
+  experience: 0
+  level: 1
+  experienceCap: 0
+  levelRanges:
+  - startLevel: 1
+    endLevel: 3
+    experienceCapIncrease: 100
+  - startLevel: 4
+    endLevel: 5
+    experienceCapIncrease: 200
 --- !u!1001 &837978427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -564,6 +574,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8823255052981436765, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 78bb85640fce424468d489d45c810c76, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

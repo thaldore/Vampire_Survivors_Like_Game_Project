@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "CharacterScriptableObject", menuName = "ScriptableObject/Character")]
-public class CharacterScriptableObject : MonoBehaviour
+public class CharacterScriptableObject : ScriptableObject
 {
     [SerializeField]
     GameObject startingWeapon;
