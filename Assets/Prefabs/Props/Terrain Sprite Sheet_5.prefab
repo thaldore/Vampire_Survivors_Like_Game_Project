@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3585895694542326043}
   m_Layer: 0
   m_Name: Terrain Sprite Sheet_5
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 414000067
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2101621202, guid: cead828f871c9b543a940c45f4bb9744, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

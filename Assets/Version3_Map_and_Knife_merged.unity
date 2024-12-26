@@ -119,6 +119,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &512393082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512393083}
+  - component: {fileID: 512393084}
+  m_Layer: 0
+  m_Name: Garlic Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512393083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512393082}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 524308720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512393084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512393082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1e0f7f65f2ace41bb5fbeab48042a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6352761666470659187, guid: 4f30ac88be15e9a4cb2c38b6035fb675, type: 3}
+  damage: 0
+  speed: 0
+  cooldownDuration: 3
+  pierce: 0
 --- !u!1 &524308716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7556182047948408738, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
@@ -384,6 +433,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1579700896161146768, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579700896161146768, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579700896161146768, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1587204117
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197850031102243488, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197850031102243488, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6923391471615988222, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -438,6 +507,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6923391471615988222, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1349823751}
+    - targetCorrespondingSourceObject: {fileID: 6923391471615988222, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512393083}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7556182047948408738, guid: 20ff2c36c3de78e44b975ad696cd8f0a, type: 3}
       insertIndex: -1
