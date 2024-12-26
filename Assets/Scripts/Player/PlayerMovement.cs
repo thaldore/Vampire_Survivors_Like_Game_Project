@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     
     
 
-
     
     //To preserve states
     [HideInInspector]
@@ -25,11 +24,13 @@ public class PlayerMovement : MonoBehaviour
 
     // referencess
     Rigidbody2D rb;
-    public CharacterScriptableObject characterData;
+    //public CharacterScriptableObject characterData; //ihtiyac kalmadi
+    PlayerStats player;
     
 
     void Start()
     {
+        player = GetComponent<PlayerStats>();   
         rb = GetComponent<Rigidbody2D>();
         lastMovedVector = new Vector2(1, 0f); //If we don't do this and game starts up and don't move, the projectile weapon will have no momentum
     }
@@ -71,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.linearVelocity = new Vector2(moveDir.x * characterData.MoveSpeed, moveDir.y * characterData.MoveSpeed);    //Apply velocity
+        rb.linearVelocity = new Vector2(moveDir.x * player.currentMoveSpeed, moveDir.y * player.currentMoveSpeed);    //Apply velocity
 
     }
 }
