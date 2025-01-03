@@ -179,5 +179,6 @@ public class PlayerStats : MonoBehaviour
         spawnedWeapons.Add(spawnedWeapon); //add it to the list of spawned weapons
 
 
+
     }
 }

@@ -30,6 +30,8 @@ public class CharacterSelector : MonoBehaviour
     public void SelectCharacter(CharacterScriptableObject character)
     {
         characterData = character;
+        Debug.LogWarning($"Selected Character: {characterData.name}, MaxHealth: {characterData.MaxHealth}," +
+            $" MoveSpeed: {characterData.MoveSpeed}, Spawned Weapon: {characterData.StartingWeapon.name}");
     }
 
     public void DestroySingleton()
