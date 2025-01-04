@@ -71,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemies();
         }
 
-        Debug.Log($"Spawn Timer: {spawnTimer}, Interval: {waves[currentWaveCount].spawnInterval}");
+        //Debug.Log($"Spawn Timer: {spawnTimer}, Interval: {waves[currentWaveCount].spawnInterval}");
 
     }
 
