@@ -741,7 +741,7 @@ MonoBehaviour:
   - waveName: Wave 1
     enemyGroups:
     - enemyName: Bat
-      enemyCount: 20
+      enemyCount: 3
       spawnCount: 0
       enemyPrefab: {fileID: 1603414901320864091, guid: e03ad50e19795594ca9af6a75a2f40cf, type: 3}
     waveQuota: 0

@@ -51,8 +51,14 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0) //check if the waves has ended and the next wave should start
+        if (currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0) // Dalga baþlangýcý kontrolü
         {
+            if (enemiesAlive > 0) // Aktif düþmanlar varsa dalgayý baþlatma
+            {
+                Debug.LogWarning("Enemies still alive, not starting the next wave!");
+                return;
+            }
+
             StartCoroutine(BeginNextWave());
         }
 
@@ -65,21 +71,34 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemies();
         }
 
-        Debug.Log($"Spawn Timer: {spawnTimer}, Interval: {waves[currentWaveCount].spawnInterval}"); 
+        Debug.Log($"Spawn Timer: {spawnTimer}, Interval: {waves[currentWaveCount].spawnInterval}");
 
     }
 
     IEnumerator BeginNextWave()
     {
-        //wave for 'waveInterval' seconds before starting the next wave
+        // Eðer dalga sýrasýnda hâlâ düþman varsa bekle
+        while (enemiesAlive > 0)
+        {
+            Debug.LogWarning("Waiting for all enemies to be cleared before starting the next wave...");
+            yield return null;
+        }
+
+        // Dalgalar arasý bekleme süresi
         yield return new WaitForSeconds(waveInterval);
 
-        //IOf there are more waves to start after current wave,move on to the next wave
-        if(currentWaveCount < waves.Count - 1 )
+        // Eðer son dalgadaysak baþa dön
+        if (currentWaveCount >= waves.Count - 1)
         {
-            currentWaveCount++;
-            CalculateWaveQuota();
+            currentWaveCount = 0; // Sonsuz döngü için baþa dön
         }
+        else
+        {
+            currentWaveCount++; // Bir sonraki dalgaya geç
+        }
+
+        CalculateWaveQuota(); // Yeni dalga için quota hesapla
+        Debug.Log($"Wave {currentWaveCount + 1} is starting!");
     }
 
     void CalculateWaveQuota()
@@ -105,51 +124,47 @@ public class EnemySpawner : MonoBehaviour
     {
         Debug.Log($"Current SpawnCount: {waves[currentWaveCount].spawnCount}, WaveQuota: {waves[currentWaveCount].waveQuota}, MaxEnemiesReached: {maxEnemiesReached}");
 
-        // check if the minimum number of enemies in the wave have been spawned
-        if (waves[currentWaveCount].spawnCount < waves[currentWaveCount].waveQuota && !maxEnemiesReached)
+        // Eðer spawn noktalarý yoksa hata ver
+        if (relativeSpawnPoints == null || relativeSpawnPoints.Count == 0)
         {
-            Debug.Log($"Spawning enemies: spawnCount = {waves[currentWaveCount].spawnCount}, waveQuota = {waves[currentWaveCount].waveQuota}, maxEnemiesReached = {maxEnemiesReached}");
-            // spawn each type of the enemy until the quota is filled
-            foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
+            Debug.LogError("No spawn points available!");
+            return;
+        }
+
+        if (waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota)
+        {
+            Debug.Log($"Wave {currentWaveCount + 1} complete! SpawnCount: {waves[currentWaveCount].spawnCount}, WaveQuota: {waves[currentWaveCount].waveQuota}");
+            StartCoroutine(HandleWaveCompletion());
+            return;
+        }
+
+        // Eðer maksimum düþman sayýsýna ulaþýldýysa spawn iþlemini durdur
+        if (enemiesAlive >= maxEnemiesAllowed)
+        {
+            maxEnemiesReached = true;
+            Debug.LogWarning("Max enemies reached!");
+            return;
+        }
+
+        // Her düþman grubunda spawn iþlemi yap
+        foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
+        {
+            // Eðer bu grubun düþman sayýsý tamamlanmamýþsa düþman oluþtur
+            if (enemyGroup.spawnCount < enemyGroup.enemyCount)
             {
-                // check if  the minimum number of enemies of this type have been spawned
-                if (enemyGroup.spawnCount < enemyGroup.enemyCount)
-                {
-                    // limit the number of enemies that can be spawned at once
-                    if(enemiesAlive >= maxEnemiesAllowed)
-                    {
-                        maxEnemiesReached = true;
-                        Debug.LogWarning("Max enemies reached!");
-                        return;
-                    }
+                Instantiate(enemyGroup.enemyPrefab,
+                            player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position,
+                            Quaternion.identity);
 
-                    // spawn the enemy at random position close to player
-                    Instantiate(enemyGroup.enemyPrefab, player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
+                enemyGroup.spawnCount++;
+                waves[currentWaveCount].spawnCount++;
+                enemiesAlive++;
 
-                    enemyGroup.spawnCount++;
-                    waves[currentWaveCount].spawnCount++;
-                    enemiesAlive++;
-
-                    Debug.Log($"Spawned {enemyGroup.enemyName}!");
-
-                }
+                Debug.Log($"Spawned {enemyGroup.enemyName}!");
             }
         }
 
-        //reset the maxEnemiesReached flag if the number of enemies alive has dropped below the maximum amount
-        if(enemiesAlive < maxEnemiesAllowed)
-        {
-            maxEnemiesReached = false;
-            Debug.Log("Max enemies flag reset.");
-        }
-    }
-
-    // call this function is enemy killed
-    public void OnEnemyKilled()
-    {
-        // decrement the number of enemies alive
-        enemiesAlive--;
-
+        // Aktif düþman sayýsý azaldýðýnda maxEnemiesReached bayraðýný sýfýrla
         if (enemiesAlive < maxEnemiesAllowed)
         {
             maxEnemiesReached = false;
@@ -157,4 +172,55 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    IEnumerator HandleWaveCompletion()
+    {
+        Debug.Log($"Wave {currentWaveCount + 1} completed!");
+
+        yield return new WaitForSeconds(5f); // Dalga tamamlandýktan sonra kýsa bir bekleme süresi
+
+        // Yeni dalgaya geç
+        currentWaveCount++;
+        if (currentWaveCount >= waves.Count) // Son dalgaya ulaþýldýysa döngüyü baþa al
+        {
+            currentWaveCount = 0; // Sonsuz döngü için dalgalarý baþa al
+        }
+
+        // Dalganýn tüm sayaçlarýný sýfýrla
+        foreach (var group in waves[currentWaveCount].enemyGroups)
+        {
+            group.spawnCount = 0;
+        }
+
+        waves[currentWaveCount].spawnCount = 0; // Dalganýn spawn sayacýný sýfýrla
+        enemiesAlive = 0; // Aktif düþmanlarý sýfýrla
+        maxEnemiesReached = false;
+
+        Debug.Log($"Wave {currentWaveCount + 1} is starting!");
+    }
+
+    // call this function is enemy killed
+    public void OnEnemyKilled()
+    {
+        if (enemiesAlive > 0)
+        {
+            enemiesAlive--;
+        }
+
+        Debug.Log($"Enemy killed! Remaining enemies alive: {enemiesAlive}");
+
+        // Eðer düþman sayýsý maksimumdan azsa bayraðý sýfýrla
+        if (enemiesAlive < maxEnemiesAllowed)
+        {
+            maxEnemiesReached = false;
+            Debug.Log("Max enemies flag reset.");
+        }
+
+    }
+
+
 }
+
+
+
+
+
