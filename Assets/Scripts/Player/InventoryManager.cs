@@ -28,6 +28,7 @@ public class InventoryManager : MonoBehaviour
         passiveItemUISlots[slotIndex].sprite = passiveItem.passiveItemData.Icon;
     }
 
+    /* weapon level uprade with keyboard
     void Update()
     {
         // Klavye tuþuna basýldýðýnda LevelUpWeapon çaðýr
@@ -52,6 +53,7 @@ public class InventoryManager : MonoBehaviour
             LevelUpPassiveItem(1); // Slot 1 için
         }
     }
+    */
 
     public void LevelUpWeapon(int slotIndex)
     {
