@@ -28,6 +28,31 @@ public class InventoryManager : MonoBehaviour
         passiveItemUISlots[slotIndex].sprite = passiveItem.passiveItemData.Icon;
     }
 
+    void Update()
+    {
+        // Klavye tuþuna basýldýðýnda LevelUpWeapon çaðýr
+        if (Input.GetKeyDown(KeyCode.Alpha1)) // 1 tuþu
+        {
+            LevelUpWeapon(0); // Slot 0 için
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2)) // 2 tuþu
+        {
+            LevelUpWeapon(1); // Slot 1 için
+        }
+
+        // Klavye tuþuna basýldýðýnda LevelUpPassiveItem çaðýr
+        if (Input.GetKeyDown(KeyCode.Alpha3)) // 3 tuþu
+        {
+            LevelUpPassiveItem(0); // Slot 0 için
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4)) // 4 tuþu
+        {
+            LevelUpPassiveItem(1); // Slot 1 için
+        }
+    }
+
     public void LevelUpWeapon(int slotIndex)
     {
         Debug.Log("LevelUpWeapon called with slotIndex: " + slotIndex);
@@ -85,6 +110,11 @@ public class InventoryManager : MonoBehaviour
             Destroy(passiveItem.gameObject);
             passiveItemLevels[slotIndex] = upgradedPassiveItem.GetComponent<PassiveItem>().passiveItemData.Level; // to make sure we have the correct passive item  level
         }
+    }
+
+    public void TestButtonFunction()
+    {
+        Debug.Log("Button is working correctly!");
     }
 
 }
