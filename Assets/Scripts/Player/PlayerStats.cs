@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
 
     //current stats
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     float currentHealth;
     float currentRecovery;
     float currentMoveSpeed;
@@ -90,22 +91,144 @@ float currentMagnet;
         }
     }
     
+=======
+    
+    public float currentHealth;
+    
+    float currentRecovery;
+    float currentMoveSpeed;
+    float currentMight;
+    float currentProjectileSpeed;
+    float currentMagnet;
+
+
+    #region Current Stats Properties
+
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+        set 
+        {
+            // check if the value changed
+            if (currentHealth != value)
+            {
+                currentHealth = value;
+                
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentHealthDisplay.text = "Health : " + currentHealth;
+                }
+                //add any additional logic here  that needs  to be  executed when the value changes
+            }
+        }
+    }
+
+    public float CurrentRecovery
+    {
+        get { return currentRecovery; }
+        set
+        {
+            // check if the value changed
+            if (currentRecovery != value)
+            {
+                currentRecovery = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentRecoveryDisplay.text = "Recovery : " + currentRecovery;
+                }
+                //add any additional logic here  that needs  to be  executed when the value changes
+            }
+        }
+    }
+
+    public float CurrentMoveSpeed
+    {
+        get { return currentMoveSpeed; }
+        set
+        {
+            // check if the value changed
+            if (currentMoveSpeed != value)
+            {
+                currentMoveSpeed = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed : " + currentMoveSpeed;
+                }
+                //add any additional logic here  that needs  to be  executed when the value changes
+            }
+        }
+    }
+
+    public float CurrentMight
+    {
+        get { return currentMight; }
+        set
+        {
+            // check if the value changed
+            if (currentMight != value)
+            {
+                currentMight = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentMightDisplay.text = "Might : " + currentMight;
+                }
+                //add any additional logic here  that needs  to be  executed when the value changes
+            }
+        }
+    }
+
+
+>>>>>>> Stashed changes
     public float CurrentProjectileSpeed
     {
         get { return currentProjectileSpeed; }
         set
         {
+<<<<<<< Updated upstream
             // Check if the value has changed
+=======
+            // check if the value changed
+>>>>>>> Stashed changes
             if (currentProjectileSpeed != value)
             {
                 currentProjectileSpeed = value;
                 if (GameManager.instance != null)
                 {
+<<<<<<< Updated upstream
                     GameManager.instance.CurrentProjectileSpeedDisplay.text = "Projectile Speed: " + currentProjectileSpeed;
                 }
             }
         }
     }
+=======
+                    GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed : " + currentProjectileSpeed;
+                }
+                //add any additional logic here  that needs  to be  executed when the value changes
+            }
+        }
+    }
+
+    public float CurrentMagnet
+    {
+        get { return currentMagnet; }
+        set
+        {
+            // check if the value changed
+            if (currentMagnet != value)
+            {
+                currentMagnet = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentMagnetDisplay.text = "Magnet : " + currentMagnet;
+                }
+                //add any additional logic here  that needs  to be  executed when the value changes
+            }
+        }
+    }
+    #endregion
+
+
+>>>>>>> Stashed changes
 
     public float CurrentMagnet
     {
@@ -158,12 +281,15 @@ float currentMagnet;
     {
         //assign the variables
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         currentHealth = characterData.MaxHealth;
         currentRecovery = characterData.Recovery;
         currentMoveSpeed = characterData.MoveSpeed;
         currentMight = characterData.Might;
         currentProjectileSpeed = characterData.ProjectileSpeed;
 =======
+=======
+>>>>>>> Stashed changes
         CurrentHealth = characterData.MaxHealth;
         CurrentRecovery = characterData.Recovery;
         CurrentMoveSpeed = characterData.MoveSpeed;
@@ -184,6 +310,17 @@ float currentMagnet;
     {
         // Initialize the experience cap as the first experience cap increase
         experienceCap = levelRanges[0].experienceCapIncrease;
+
+        //set the  current stats display
+        GameManager.instance.currentHealthDisplay.text = "Magnet : " + currentMagnet;
+        GameManager.instance.currentRecoveryDisplay.text = "Recovery : " + currentRecovery;
+        GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed : " + currentMoveSpeed;
+        GameManager.instance.currentMightDisplay.text = "Might : " + currentMight;
+        GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed : " + currentProjectileSpeed;
+        GameManager.instance.currentMagnetDisplay.text = "Magnet : " + currentMagnet;
+
+
+        GameManager.instance.AssignChosenCharacterUI(characterData);
     }
 
     private void Update()
@@ -240,16 +377,22 @@ float currentMagnet;
 
             if (CurrentHealth <= 0)
             {
-                kill();
+                Kill();
             }
         }
 
         
     }
 
-    public void kill()
+    public void Kill()
     {
-        Debug.Log("PLAYER IS DEAD"); 
+        if (!GameManager.instance.isGameOver)
+        {
+
+            GameManager.instance.AssignLevelReachedUI(level);
+            GameManager.instance.AssignWeaponsAndPassiveItemsUI(inventory.weaponUISlots , inventory.passiveItemUISlots);
+            GameManager.instance.GameOver();
+        }
     }
 
 
