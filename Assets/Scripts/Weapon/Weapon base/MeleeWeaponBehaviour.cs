@@ -25,6 +25,15 @@ public class MeleeWeaponBehaviour : MonoBehaviour
         currentPierce = weaponData.Pierce;
     }
 
+<<<<<<< Updated upstream
+=======
+    public float GetCurrentDamage()
+    {
+        return currentDamage *= FindAnyObjectByType<PlayerStats>().CurrentMight;
+    }
+
+
+>>>>>>> Stashed changes
     protected virtual void Start()
     {
         Destroy(gameObject, destroyAfterSeconds);
