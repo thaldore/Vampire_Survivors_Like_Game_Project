@@ -8,12 +8,15 @@ public class PlayerStats : MonoBehaviour
 
     //current stats
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     float currentHealth;
     float currentRecovery;
     float currentMoveSpeed;
     float currentMight;
     float currentProjectileSpeed;
 =======
+=======
+>>>>>>> Stashed changes
 float currentHealth;
 float currentRecovery;
 float currentMoveSpeed;
@@ -106,6 +109,29 @@ float currentMagnet;
             }
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    public float CurrentMagnet
+    {
+        get { return currentMagnet; }
+        set
+        {
+            // Check if the value has changed
+            if (currentMagnet != value)
+            {
+                currentMagnet = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.CurrentMagnetDisplay.text = "Magnet: " + currentMagnet;
+                }
+            }
+        }
+    }
+    #endregion
+
+
+>>>>>>> Stashed changes
 
     public float CurrentMagnet
     {
@@ -158,12 +184,15 @@ float currentMagnet;
     {
         //assign the variables
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         currentHealth = characterData.MaxHealth;
         currentRecovery = characterData.Recovery;
         currentMoveSpeed = characterData.MoveSpeed;
         currentMight = characterData.Might;
         currentProjectileSpeed = characterData.ProjectileSpeed;
 =======
+=======
+>>>>>>> Stashed changes
         CurrentHealth = characterData.MaxHealth;
         CurrentRecovery = characterData.Recovery;
         CurrentMoveSpeed = characterData.MoveSpeed;

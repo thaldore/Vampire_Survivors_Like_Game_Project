@@ -72,7 +72,11 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         rb.linearVelocity = new Vector2(moveDir.x * characterData.MoveSpeed, moveDir.y * characterData.MoveSpeed);    //Apply velocity
+=======
+        rb.linearVelocity = new Vector2(moveDir.x * player.CurrentMoveSpeed, moveDir.y * player.CurrentMoveSpeed);    //Apply velocity
+>>>>>>> Stashed changes
 =======
         rb.linearVelocity = new Vector2(moveDir.x * player.CurrentMoveSpeed, moveDir.y * player.CurrentMoveSpeed);    //Apply velocity
 >>>>>>> Stashed changes
