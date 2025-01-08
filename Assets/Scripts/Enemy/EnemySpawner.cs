@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
         public int waveQuota;   // the total number of enemies to spawn in this wave
         public float spawnInterval;     // the interval at which to spawn enemies
         public int spawnCount;  // the number of enemies already spawned in this wave
-
+        public int maxSimultaneousSpawns;
     }
 
     [System.Serializable]
@@ -64,23 +64,23 @@ public class EnemySpawner : MonoBehaviour
 
         spawnTimer += Time.deltaTime;
 
-        // check if its time to spawn the next enemy
+        // Check if it's time to spawn the next enemy
         if (spawnTimer >= waves[currentWaveCount].spawnInterval)
         {
             spawnTimer = 0f;
             SpawnEnemies();
         }
 
-        //Debug.Log($"Spawn Timer: {spawnTimer}, Interval: {waves[currentWaveCount].spawnInterval}");
+        // Debug.Log($"Spawn Timer: {spawnTimer}, Interval: {waves[currentWaveCount].spawnInterval}");
 
     }
 
     IEnumerator BeginNextWave()
     {
         // Eðer dalga sýrasýnda hâlâ düþman varsa bekle
-        while (enemiesAlive > 0)
+        while (enemiesAlive > 0 || waves[currentWaveCount].spawnCount < waves[currentWaveCount].waveQuota)
         {
-            Debug.LogWarning("Waiting for all enemies to be cleared before starting the next wave...");
+            Debug.LogWarning("Waiting for all enemies to be cleared and spawned before starting the next wave...");
             yield return null;
         }
 
@@ -124,13 +124,13 @@ public class EnemySpawner : MonoBehaviour
     {
         Debug.Log($"Current SpawnCount: {waves[currentWaveCount].spawnCount}, WaveQuota: {waves[currentWaveCount].waveQuota}, MaxEnemiesReached: {maxEnemiesReached}");
 
-        // Eðer spawn noktalarý yoksa hata ver
         if (relativeSpawnPoints == null || relativeSpawnPoints.Count == 0)
         {
             Debug.LogError("No spawn points available!");
             return;
         }
 
+        // Eðer dalganýn spawn kotasý dolmuþsa
         if (waves[currentWaveCount].spawnCount >= waves[currentWaveCount].waveQuota)
         {
             Debug.Log($"Wave {currentWaveCount + 1} complete! SpawnCount: {waves[currentWaveCount].spawnCount}, WaveQuota: {waves[currentWaveCount].waveQuota}");
@@ -138,37 +138,54 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        // Eðer maksimum düþman sayýsýna ulaþýldýysa spawn iþlemini durdur
-        if (enemiesAlive >= maxEnemiesAllowed)
+        // Eðer maksimum eþ zamanlý düþman sayýsýna ulaþýldýysa
+        if (enemiesAlive >= waves[currentWaveCount].maxSimultaneousSpawns)
         {
-            maxEnemiesReached = true;
-            Debug.LogWarning("Max enemies reached!");
+            Debug.LogWarning("Max simultaneous spawns reached for this wave!");
             return;
         }
 
-        // Her düþman grubunda spawn iþlemi yap
-        foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
+        // Ayný anda spawn edilecek düþman sayýsýný hesapla
+        int spawnableEnemies = Mathf.Min(
+            waves[currentWaveCount].maxSimultaneousSpawns - enemiesAlive, // Maksimum eþ zamanlý spawn sýnýrý
+            waves[currentWaveCount].waveQuota - waves[currentWaveCount].spawnCount // Kalan spawn hakký
+        );
+
+        Debug.Log($"Spawning up to {spawnableEnemies} enemies...");
+
+        for (int i = 0; i < spawnableEnemies; i++)
         {
-            // Eðer bu grubun düþman sayýsý tamamlanmamýþsa düþman oluþtur
-            if (enemyGroup.spawnCount < enemyGroup.enemyCount)
+            foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
             {
-                Instantiate(enemyGroup.enemyPrefab,
-                            player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position,
-                            Quaternion.identity);
+                // Eðer bu gruptan daha fazla spawn edilebilecek düþman varsa
+                if (enemyGroup.spawnCount < enemyGroup.enemyCount)
+                {
+                    // Düþmaný spawn et
+                    Instantiate(
+                        enemyGroup.enemyPrefab,
+                        player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position,
+                        Quaternion.identity
+                    );
 
-                enemyGroup.spawnCount++;
-                waves[currentWaveCount].spawnCount++;
-                enemiesAlive++;
+                    enemyGroup.spawnCount++;
+                    waves[currentWaveCount].spawnCount++;
+                    enemiesAlive++;
 
-                Debug.Log($"Spawned {enemyGroup.enemyName}!");
+                    Debug.Log($"Spawned {enemyGroup.enemyName}! Active enemies: {enemiesAlive}");
+
+                    // Spawn edilen düþman sayýsý maksimum eþ zamanlý spawn sayýsýna ulaþtýysa döngüyü kýr
+                    if (enemiesAlive >= waves[currentWaveCount].maxSimultaneousSpawns)
+                    {
+                        break;
+                    }
+                }
             }
-        }
 
-        // Aktif düþman sayýsý azaldýðýnda maxEnemiesReached bayraðýný sýfýrla
-        if (enemiesAlive < maxEnemiesAllowed)
-        {
-            maxEnemiesReached = false;
-            Debug.Log("Max enemies flag reset.");
+            // Eðer düþmanlar maksimum eþ zamanlý spawn sayýsýna ulaþtýysa döngüyü kýr
+            if (enemiesAlive >= waves[currentWaveCount].maxSimultaneousSpawns)
+            {
+                break;
+            }
         }
     }
 
@@ -176,7 +193,15 @@ public class EnemySpawner : MonoBehaviour
     {
         Debug.Log($"Wave {currentWaveCount + 1} completed!");
 
-        yield return new WaitForSeconds(5f); // Dalga tamamlandýktan sonra kýsa bir bekleme süresi
+        // Dalga tamamlandýktan sonra kýsa bir bekleme süresi
+        yield return new WaitForSeconds(5f);
+
+        // Eðer hâlâ düþman varsa yeni dalgaya geçme
+        if (enemiesAlive > 0)
+        {
+            Debug.LogWarning("Enemies still alive! Cannot proceed to the next wave.");
+            yield break; // Dalgayý sonlandýr ve yeni dalgaya geçme
+        }
 
         // Yeni dalgaya geç
         currentWaveCount++;
@@ -188,10 +213,10 @@ public class EnemySpawner : MonoBehaviour
         // Dalganýn tüm sayaçlarýný sýfýrla
         foreach (var group in waves[currentWaveCount].enemyGroups)
         {
-            group.spawnCount = 0;
+            group.spawnCount = 0; // Her grubun spawn sayýsýný sýfýrla
         }
 
-        waves[currentWaveCount].spawnCount = 0; // Dalganýn spawn sayacýný sýfýrla
+        waves[currentWaveCount].spawnCount = 0; // Dalganýn genel spawn sayacýný sýfýrla
         enemiesAlive = 0; // Aktif düþmanlarý sýfýrla
         maxEnemiesReached = false;
 

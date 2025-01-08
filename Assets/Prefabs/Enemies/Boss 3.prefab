@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7132578573232301592}
   - component: {fileID: -7392769304558608802}
   m_Layer: 0
-  m_Name: Bat
+  m_Name: Boss 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 1587204117
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1075475507, guid: 1a9ce189f31c0624f9939ed806e9f450, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -6407341208919860682, guid: 56c049703450b9c40abce9d23190b3ac, type: 3}
+  m_Color: {r: 0.6754716, g: 0.18734777, b: 0.29168722, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603414901320864091}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a332a374f4baf72488068a8ef6a46351, type: 2}
   m_CullingMode: 0
@@ -152,13 +152,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.84375, y: 0.6875}
+    oldSize: {x: 3.48, y: 4.4}
     newSize: {x: 0.84375, y: 0.6875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.84375, y: 0.6875}
+  m_Size: {x: 3.5, y: 4}
   m_EdgeRadius: 0
 --- !u!114 &-5645950965693008447
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a856ea43e754394f8728ea3215e5433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: cab4f9d8e9a83d34f83ba6143865c9bb, type: 2}
+  enemyData: {fileID: 11400000, guid: b64b37cd6a34f024ea9e25172274617e, type: 2}
   currentMoveSpeed: 0
   currentHealth: 0
   currentDamage: 0
